@@ -52,6 +52,7 @@ table.ntdata a {
   {% else %}
             <tr><td colspan="3">This field is not Galois over $\Q$.</tr>
   {% endif %}
+            <tr><td colspan="3">This field is {% if not nf.is_cm %} not {% endif %} CM</td></tr>
 
           </table>
         </p>

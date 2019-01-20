@@ -43,10 +43,18 @@ set of {{KNOWL('nf.ramified_primes', title='ramified primes')}}
   <option value='include'>superset of</option>
 </select>
 {% endif %}
- <td align=left> <input type='text' name='ram_primes' size=5 value="{{info.ram_primes}}"></td>
+ <td align='left'> <input type='text' name='ram_primes' size=5 value="{{info.ram_primes}}"></td>
 
 </tr>
-
+<tr>
+    <td align='left'>Is CM:
+      <select name='is_cm' value='{{info.is_cm}}'>
+        <option value=""></option>
+        <option value="True">Yes</option>
+        <option value="False">No</option>
+      </select>
+    </td>
+  </tr>
 <tr>
 <td align='left' colspan='4'>Maximum number of fields to display <input type='text' name='count' value="{{info.count}}" size='10'>
 </td>

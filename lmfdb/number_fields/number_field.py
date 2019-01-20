@@ -22,7 +22,7 @@ from sage.all import ZZ, QQ, PolynomialRing, NumberField, latex, primes, pari
 from lmfdb.transitive_group import group_display_knowl, cclasses_display_knowl,character_table_display_knowl, group_phrase, group_display_short, galois_group_data, group_cclasses_knowl_guts, group_character_table_knowl_guts, group_alias_table
 
 from lmfdb.utils import web_latex, to_dict, coeff_to_poly, pol_to_html, comma, format_percentage, web_latex_split_on_pm
-from lmfdb.search_parsing import clean_input, nf_string_to_label, parse_galgrp, parse_ints, parse_signed_ints, parse_primes, parse_bracketed_posints, parse_nf_string
+from lmfdb.search_parsing import clean_input, nf_string_to_label, parse_galgrp, parse_ints, parse_signed_ints, parse_primes, parse_bracketed_posints, parse_nf_string, parse_bool
 from lmfdb.search_wrapper import search_wrap
 
 NF_credit = 'the PARI group, J. Voight, J. Jones, D. Roberts, J. Kl&uuml;ners, G. Malle'
@@ -349,6 +349,7 @@ def render_field_webpage(args):
 
     info['wnf'] = nf
     data['degree'] = nf.degree()
+    data['is_cm'] = nf.is_cm()
     data['class_number'] = nf.class_number_latex()
     ram_primes = nf.ramified_primes()
     t = nf.galois_t()
@@ -692,6 +693,7 @@ def number_field_jump(info):
              learnmore=learnmore_list)
 def number_field_search(info, query):
     parse_ints(info,query,'degree')
+    parse_bool(info,query,'is_cm')
     parse_galgrp(info,query, qfield=('degree', 'galt'))
     parse_bracketed_posints(info,query,'signature',qfield=('degree','r2'),exactlength=2,extractor=lambda L: (L[0]+2*L[1],L[1]))
     parse_signed_ints(info,query,'discriminant',qfield=('disc_sign','disc_abs'))
