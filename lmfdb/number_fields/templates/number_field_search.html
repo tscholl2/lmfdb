@@ -47,15 +47,15 @@ set of {{KNOWL('nf.ramified_primes', title='ramified primes')}}
 
 </tr>
 <tr>
-    <td align='left'>Is CM:
-      <select name='is_cm' value='{{info.is_cm}}'>
-        <option value=""></option>
-        <option value="True">Yes</option>
-        <option value="False">No</option>
-      </select>
-    </td>
-  </tr>
-<tr>
+  <td align='left'>CM</td>
+  <td>
+    <select name="is_cm">
+      <option value="">Include</option>
+      <option value="True">Only</option>
+      <option value="False">Exclude</option>
+    </select>
+  </td>
+</tr>
 <td align='left' colspan='4'>Maximum number of fields to display <input type='text' name='count' value="{{info.count}}" size='10'>
 </td>
 </tr>

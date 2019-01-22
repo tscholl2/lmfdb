@@ -311,6 +311,9 @@ class WebNumberField:
     def is_imag_quadratic(self):
         return self.signature()==[0,1]
 
+    def is_cm(self):
+        return self._data['is_cm']
+
     def poly(self):
         return coeff_to_poly(self._data['coeffs'])
 
